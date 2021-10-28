@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Display using until loops
 x=0
 until [ $x -gt 9 ]
 do
