@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Learn to use if elif
 x=1
 while [ $x -le 10 ]
 do
