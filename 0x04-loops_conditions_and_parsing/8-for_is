@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+# Display name part
 l=$(ls)
 for x in $l; do echo "$x" |cut -d '-' -f 2-; done
