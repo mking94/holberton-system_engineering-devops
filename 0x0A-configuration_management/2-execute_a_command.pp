@@ -1,6 +1,6 @@
 # Run command
 
-exec { 'exec':
+exec { 'pkill':
     command => 'pkill killmeknow',
     path    => '/usr/local/bin/:/bin/',
   }
