@@ -1,6 +1,6 @@
 # Run command
 
 exec { 'pkill':
-    command => 'pkill killmeknow',
-    path    => '/usr/local/bin/:/bin/',
+    command => 'pkill -f killmenow',
+    path    => '/usr/bin:/usr/sbin:/bin',
   }
