@@ -2,8 +2,8 @@
 # Installs Nginx with the following configurations
 sudo apt-get update -y
 sudo apt-get install -y nginx
-
 sudo ufw enable
+sudo ufw allow 'Nginx HTTPS'
 sudo ufw allow 'Nginx HTTP'
 sudo echo "Holberton School" > /etc/nginx/html/index.nginx-debian.html
 sudo service nginx restart
