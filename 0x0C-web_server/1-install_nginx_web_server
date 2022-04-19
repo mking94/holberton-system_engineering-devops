@@ -2,7 +2,6 @@
 # Installs Nginx with the following configurations
 sudo apt-get update -y
 sudo apt-get install -y nginx
-sudo mkdir /etc/nginx/html
 sudo echo "Holberton School" > /etc/nginx/html/index.nginx-debian.html
 sudo echo -e "server {\nlisten      80 default_server;\nlisten      [::]:80 default_server;\nroot        /etc/nginx/html;\n}" >> /etc/nginx/sites-available/default
 sudo service nginx restart
