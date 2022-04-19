@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Installs Nginx with the following configurations
-apt-get update
-apt-get install -y nginx
-mkdir /etc/nginx/html
-echo "Holberton School" > /etc/nginx/html/index.nginx-debian.html
-printf %s "server {
+sudo apt-get update -y
+sudo apt-get install -y nginx
+sudo mkdir /etc/nginx/html
+sudo echo "Holberton School" > /etc/nginx/html/index.nginx-debian.html
+sudo printf %s "server {
      listen      80 default_server;
      listen      [::]:80 default_server;
      root        /etc/nginx/html;
 }" > /etc/nginx/sites-available/default
-service nginx restart
+sudo service nginx restart
