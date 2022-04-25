@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
-# Script that add header to Nginx
+# Script that install Nginx and add header
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
+sudo chown -R "$USER":"$USER" /var/www/
+sudo chown -R "$USER":"$USER" /etc/nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
 sudo sed '/location/a add_header X-Served-By $hostname' /etc/nginx/sites-available/default
 sudo service nginx restart
