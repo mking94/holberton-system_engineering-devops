@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Script that add header to Nginx
+sed '/location/a add_header X-Served-By $hostname' /etc/nginx/sites-available/default
