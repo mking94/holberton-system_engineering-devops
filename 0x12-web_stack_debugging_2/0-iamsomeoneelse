@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Bash script that change user
 if (($# == 1))
 then
 su "$1" -c whoami
