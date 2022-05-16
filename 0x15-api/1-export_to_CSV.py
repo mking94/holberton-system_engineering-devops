@@ -17,3 +17,5 @@ if __name__ == "__main__":
         for x in todo:
             row = [str(id),str(user.get("username")),str(x.get("completed")),str(x.get("completed"))]
             writer.writerow(row)
+
+ 
