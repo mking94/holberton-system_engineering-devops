@@ -15,7 +15,8 @@ if __name__ == "__main__":
     f = open("{}.csv".format(userId), "w")
     with open('{}.csv'.format(userId), 'w', encoding='UTF8') as f:
         for x in task:
-            f.writerow(
+            writer = csv.writer(f)
+            writer.writerow(
             '"{}","{}","{}","{}"\n'.format(
                 x['userId'],
                 name,
