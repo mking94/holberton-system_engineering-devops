@@ -16,5 +16,5 @@ if __name__ == "__main__":
     comp = list(filter(lambda x: x['completed'], todos))
     print('Employee {} is done with tasks({}/{}):'
           .format(name, len(comp), len(todos)))
-    for x in list(x['title'] for x in comp):
-        print('\t {}'.format(x))
+    t = list(x['title'] for x in comp)
+    print("\n".join("\t {}".format(task) for task in t))
