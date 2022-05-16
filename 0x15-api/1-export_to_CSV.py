@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Export to csv file """
-
+import csv
 import requests
 import sys
 
