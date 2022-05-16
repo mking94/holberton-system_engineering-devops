@@ -12,8 +12,8 @@ if __name__ == "__main__":
     user = requests.get(usr_url).json()
     todo = requests.get(tds_url).json()
 
-    with open('{}.csv'.format(id), 'w') as csv_file:
-        csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+    with open('{}.csv'.format(id), 'w') as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for x in todo:
             row = [str(id),str(user.get("username")),str(x.get("completed")),str(x.get("completed"))]
-            csv_writer.writerow(row)
+            writer.writerow(row)
