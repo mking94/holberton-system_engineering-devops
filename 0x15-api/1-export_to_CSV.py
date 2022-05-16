@@ -10,12 +10,12 @@ if __name__ == "__main__":
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
     task = list(filter(lambda x: x['userId'] == int(userId), todos.json()))
 
-    f = open("{}.csv".format(sys.argv[1]), "w")
+    f = open("{}.csv".format(userId), "w")
     for x in task:
         f.write(
             '"{}","{}","{}","{}"\n'.format(
                 x['userId'],
-                x['username'],
+                name,
                 x['completed'],
                 x['title']))
     f.close()
