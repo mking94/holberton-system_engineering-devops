@@ -12,13 +12,8 @@ if __name__ == "__main__":
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
     task = list(filter(lambda x: x['userId'] == int(userId), todos.json()))
 
-    f = open("{}.csv".format(userId), "w")
     with open('{}.csv'.format(userId), 'w', encoding='UTF8') as f:
+        writer = csv.writer(f)
         for x in task:
-            writer = csv.writer(f)
-            writer.writerow(
-            '"{}","{}","{}","{}"\n'.format(
-                x['userId'],
-                name,
-                x['completed'],
-                x['title']))
+            data = ['{}'.format(x['userId']),'{}'.format(name),'{}'.format(x['completed']),'{}'.format(x['title'])]
+            writer.writerow(data)
