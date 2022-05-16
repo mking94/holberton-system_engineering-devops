@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import requests
-import json
 import sys
+"""For a given employee ID, returns information about
+their TODO list progress """
 if __name__ == "__main__":
     userId = sys.argv[1]
     user = requests.get(
