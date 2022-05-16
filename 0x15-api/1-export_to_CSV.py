@@ -15,6 +15,5 @@ if __name__ == "__main__":
     with open('{}.csv'.format(userId), 'w', encoding='UTF8') as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for x in task:
-            row = [userId, name, x["completed"], x["title"]]
-            row = [str(value) for value in row]
+            row = [str(userId), str(name), str(x["completed"]), str(x["title"])]
             writer.writerow(row)
