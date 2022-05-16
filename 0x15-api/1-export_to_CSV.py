@@ -13,7 +13,7 @@ if __name__ == "__main__":
     task = list(filter(lambda x: x['userId'] == int(userId), todos.json()))
 
     with open('{}.csv'.format(userId), 'w', encoding='UTF8') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for x in task:
             row = [userId, name, x["completed"], x["title"]]
             row = [str(value) for value in row]
