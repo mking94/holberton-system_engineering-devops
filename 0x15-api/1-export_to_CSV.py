@@ -15,5 +15,6 @@ if __name__ == "__main__":
     with open('{}.csv'.format(userId), 'w', encoding='UTF8') as f:
         writer = csv.writer(f)
         for x in task:
-            data = ",".join(['"{0}"'.format(y) for y in data])+"\n"
-            f.write(data)
+            row = [userId, name, x["completed"], x["title"]]
+            row = [str(value) for value in row]
+            writer.writerow(row)
