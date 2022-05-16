@@ -12,7 +12,7 @@ if __name__ == "__main__":
         "https://jsonplaceholder.typicode.com/users/{}".format(userId))
     name = user.json().get('name')
     req = requests.get('https://jsonplaceholder.typicode.com/todos')
-    todos = list(filter(lambda x: x['userId'] == 2, req.json()))
+    todos = list(filter(lambda x: x['userId'] == int(sys.argv[1]), req.json()))
     comp = list(filter(lambda x: x['completed'], todos))
     print('Employee {} is done with tasks({}/{}):'
           .format(name, len(comp), len(todos)))
