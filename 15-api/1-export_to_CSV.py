@@ -13,7 +13,7 @@ if __name__ == "__main__":
     f = open("{}.csv".format(sys.argv[1]), "w")
     for x in task:
         f.write(
-            '"{}","{}","{}"\n'.format(
+            '"{}","{}","{}","{}"\n'.format(
                 x['userId'],
                 x['username'],
                 x['completed'],
