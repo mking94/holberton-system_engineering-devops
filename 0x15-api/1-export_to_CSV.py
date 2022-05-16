@@ -8,7 +8,7 @@ if __name__ == "__main__":
         "https://jsonplaceholder.typicode.com/users/{}".format(userId))
     name = user.json().get('name')
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    task = list(filter(lambda x: x['userId'] == 2, todos.json()))
+    task = list(filter(lambda x: x['userId'] == int(sys.argv[1]), todos.json()))
 
     f = open("{}.csv".format(sys.argv[1]), "w")
     for x in task:
