@@ -5,18 +5,16 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    userId = sys.argv[1]
-    user = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}".format(userId))
-    name = user.json().get('name')
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    task = list(filter(lambda x: x['userId'] == int(userId), todos.json()))
+    id = sys.argv[1]
+    usr_url = "https://jsonplaceholder.typicode.com/users/{}".format(id)
+    tds_url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
 
-    with open('{}.csv'.format(userId), 'w') as f:
-        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        for x in task:
-            row = [
-                str(userId), str(name), str(
-                    x["completed"]), str(
-                    x["title"])]
-            writer.writerow(row)
+    u = requests.get(usr_url).json()
+    todo = requests.get(tds_url).json()
+
+    with open('{}.csv'.format(id), 'w') as csv_file:
+        csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+        for t in todo:
+            row = [id, u.get("username"), t.get("completed"), t.get("title")]
+            row = [str(value) for value in row]
+            csv_writer.writerow(row)
