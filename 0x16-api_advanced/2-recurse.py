@@ -2,6 +2,7 @@
 """ API advanced """
 import requests
 
+
 def recurse(subreedit, hot_list=[], after=""):
     """
      Returns a list containing the titles
