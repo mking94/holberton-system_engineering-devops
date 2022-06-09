@@ -1,5 +1,10 @@
-# Fixing the number of failed requests to 0
-exec { 'fix--for-nginx':
-  command => "sed -i 's/worker_processes 4;/worker_processes 7;/g' /etc/nginx/nginx.conf; sudo service nginx restart",
-  path    => ['/bin', '/usr/bin', '/usr/sbin']
+# Increase max open files
+exec { '/etc/default/nginx':
+  command => "sed -i 's/15/4000/g' /etc/default/nginx",
+  path    => '/bin/',
+}
+
+service { 'nginx':
+  ensure    => running,
+  subscribe => Exec['/etc/default/nginx'],
 }
